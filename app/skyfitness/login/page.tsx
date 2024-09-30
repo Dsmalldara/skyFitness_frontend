@@ -6,11 +6,12 @@ import { UserPlus, Mail, Lock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
-
 function Login() {
+
   return (
-    <section className='grid md:grid-cols-2 mx-auto min-h-screen'>
+    <section className='grid md:grid-cols-2 mx-auto min-h-screen '>
       <div className='col-span-1 flex items-center justify-center'>
+      <form>
       <Card className="w-full max-w-md text-white border border-red-700">
           <CardHeader>
             <CardTitle className="text-2xl font-bold flex items-center justify-center">
@@ -53,6 +54,7 @@ function Login() {
             Don't have an account? <a href="getstarted" className="text-rose-700 hover:underline">Sign up</a>
           </p>
         </Card>
+      </form>
       </div>
       <div className='grid-cols-1 flex items-center justify-center'>
         <Image src="/black woman_sport 1.png" width={500} height={700} alt="coaches image" className='mt-[-14rem] object-contain h-full' />

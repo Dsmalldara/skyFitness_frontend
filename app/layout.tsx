@@ -1,3 +1,5 @@
+
+import Providers from "./Provider/Provider";
 import Footer from "./SharedComponents/Footer";
 import Header from "./SharedComponents/Header";
 import "./globals.css";
@@ -15,7 +17,7 @@ const poppins = Poppins({
   display: 'swap',
   variable: '--font-poppins',
 })
-
+import 'react-toastify/dist/ReactToastify.css';
 export default function RootLayout({
   children,
 }: {
@@ -24,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className={`font-sans ${inter.className}`}>
-        <Header/>
-        <main>{children}</main>
-        <Footer/>
+      <Providers>
+        {/* <Header/> */}
+        {children}
+        {/* <Footer/> */}
+        </Providers>
       </body>
     </html>
   )

@@ -6,9 +6,9 @@ import Image from 'next/image'
 function Gallery({ImageAndText}:{ImageAndText:ImageAndTextType}) {
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(true)
-  const scrollableContainerRef = useRef(null)
+  const scrollableContainerRef = useRef<HTMLDivElement>(null)
 
-  const scroll = (scrollOffset) => {
+  const scroll = (scrollOffset:any) => {
     if (scrollableContainerRef.current) {
       scrollableContainerRef.current.scrollLeft += scrollOffset;
     }

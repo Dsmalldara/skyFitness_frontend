@@ -27,9 +27,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className={`font-sans ${inter.className}`}>
       <Providers>
-        {/* <Header/> */}
+        <Header/>
         {children}
-        {/* <Footer/> */}
+        <Footer/>
         </Providers>
       </body>
     </html>

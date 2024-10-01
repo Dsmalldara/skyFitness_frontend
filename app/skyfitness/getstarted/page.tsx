@@ -13,10 +13,12 @@ import Link from 'next/link'
 import { useRegister } from '@/app/apicalls/authApi'
 import { LoginValidation } from './LoginValidationSchema'
 import { toast, ToastContainer } from "react-toastify"
+import {useRouter}  from 'next/navigation'
 function page() {
 
   
   const [Errors, setErrors] = useState<any>(null)
+  const router = useRouter()
   const createRegisterForm = useForm({
     resolver: zodResolver(LoginValidation),
     // defaultValues: { rememberMe: false, firstName: '', },
@@ -38,12 +40,15 @@ function page() {
         values,
         {
           onError: (err)=>{
+            createRegisterForm.reset()
             console.log('Error in form submission', err)
             setErrors(err)
             console.log()
           },
           onSuccess: (data)=>{
             console.log('Success in form submission', data)
+            createRegisterForm.reset()
+            router.push('/')
             toast.success(
               "Registration successfull",
               {

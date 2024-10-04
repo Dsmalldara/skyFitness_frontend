@@ -11,7 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import Link from 'next/link'
 import { useRegister } from '@/app/apicalls/authApi'
-import { LoginValidation } from './LoginValidationSchema'
+import { RegisterValidation } from './RegisterValidationSchema'
 import { toast, ToastContainer } from "react-toastify"
 import {useRouter}  from 'next/navigation'
 function page() {
@@ -20,7 +20,7 @@ function page() {
   const [Errors, setErrors] = useState<any>(null)
   const router = useRouter()
   const createRegisterForm = useForm({
-    resolver: zodResolver(LoginValidation),
+    resolver: zodResolver(RegisterValidation),
     // defaultValues: { rememberMe: false, firstName: '', },
   })
   const {mutate:RegisterUser,isError,isSuccess,isPending,error} = useRegister()
@@ -65,8 +65,8 @@ function page() {
         }
       )
     }
-    console.log(error)
   }
+  console.log(error)
   return (
     <div className='h-full'>
         <ToastContainer />
@@ -80,12 +80,9 @@ function page() {
             <UserPlus className="mr-2   text-rose-700 font-helvetica-now  text-xl" />
            <p className=' text-rose-700 font-helvetica-now  text-xl '> Create Account</p>
           </CardTitle>
-          {/* <CardDescription className="text-center text-rose-700 font-helvetica-now  text-xl mt-[1.5rem]">
-            Join SkyFitness and start your fitness journey today
-          </CardDescription> */}
         </CardHeader>
-        <CardContent className="space-y-4">
-        <div className="space-y-2">
+        <CardContent className="space-y-1">
+        <div className="space-y-1">
               <Label htmlFor="email">First Name</Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -101,7 +98,7 @@ function page() {
               }
               </div>
           </div>
-              <div className="space-y-2">
+              <div className="space-y-1">
               <Label htmlFor="email">Last  Name</Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -117,7 +114,7 @@ function page() {
               }
               </div>
             </div>
-          <div className="space-y-2">
+          <div className="space-y-1">
             <Label htmlFor="email">Email</Label>
             <div className="relative">
               <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -133,7 +130,7 @@ function page() {
               }
             </div>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-1">
             <Label htmlFor="password">Password</Label>
             <div className="relative">
               <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -168,7 +165,7 @@ function page() {
          {
             isError &&
             <p className="text-red-500 font-bold text-center">
-              {error.response.data.msg}
+              {error?.message}
          </p>
           }
        </div>
@@ -180,7 +177,7 @@ function page() {
      </form>
         </div>
         <div className='grid-cols-1 md:block hidden'>
-        <Image src="/Coaches.png" width={500} height={700} alt="coaches image" className='mt-[-10rem] object-fit h-full' />
+        <Image src="/Coaches.png" width={500} height={700} alt="coaches image" className='mt-[-6rem] object-fit h-full' />
         </div>
     </section>
     </div>
